@@ -11,8 +11,14 @@ module ApplicationHelper
     alert_type
   end
 
-  def post_link(post)
+  def post_link_path(post)
     return post.link if post.link?
     return post_path(post) if post.text?
+  end
+
+  def post_title_link(post)
+    content_tag :div, class: 'title' do
+      link_to post.title, post_link_path(post)
+    end
   end
 end
