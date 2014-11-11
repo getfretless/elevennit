@@ -3,14 +3,17 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </fieldset>
-  <fieldset>
-    <%= f.label :link %>
-    <%= f.text_field :link %>
-  </fieldset>
-  <!--<fieldset>
-    <%# f.label :body %>
-    <%# f.text_area :body %>
-  </fieldset>-->
 
+  <fieldset>
+    <% if f.object.link? %>
+      <%= f.label :link %>
+      <%= f.text_field :link %>
+    <% elsif f.object.text? %>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    <% end %>
+  </fieldset>
+
+  <%= f.hidden_field :post_type %>
   <%= f.submit %>
 <% end %>
