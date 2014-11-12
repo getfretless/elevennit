@@ -9,4 +9,6 @@ class Post < ActiveRecord::Base
   belongs_to :category
   default_scope { order('updated_at DESC') }
   scope :with_categories, -> { includes(:category) }
+
+  self.per_page = 5
 end

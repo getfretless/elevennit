@@ -4,6 +4,7 @@ ruby '2.1.2'
 gem 'bootstrap-sass'
 gem 'rails_12factor', group: :production
 gem 'pry-rails', group: [:development, :test]
+gem 'will_paginate'
 
 group :development do
   gem "better_errors"
