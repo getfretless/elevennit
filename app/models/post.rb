@@ -7,4 +7,5 @@ class Post < ActiveRecord::Base
   enum post_type: [:link, :text]
 
   belongs_to :category
+  default_scope { order('updated_at DESC') }
 end
