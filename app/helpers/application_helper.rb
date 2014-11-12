@@ -21,4 +21,11 @@ module ApplicationHelper
       link_to post.title, post_link_path(post)
     end
   end
+
+  def sidebar(sidebar_content)
+    content_for(:sidebar) do
+      sidebar_content
+    end
+  end
+  
 end
