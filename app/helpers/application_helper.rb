@@ -27,5 +27,8 @@ module ApplicationHelper
       sidebar_content
     end
   end
-  
+
+  def comment_link_text(number_of_comments)
+    "#{number_of_comments} #{'comment'.pluralize(number_of_comments)}"
+  end
 end
