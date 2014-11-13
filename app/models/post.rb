@@ -7,8 +7,10 @@ class Post < ActiveRecord::Base
   enum post_type: [:link, :text]
 
   belongs_to :category
+  belongs_to :user
   default_scope { order('updated_at DESC') }
   scope :with_categories, -> { includes(:category) }
+  scope :with_user,       -> { includes(:user)     }
 
   self.per_page = 5
 end

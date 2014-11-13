@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @posts = Post.with_categories.page(params[:page])
+    @posts = Post.with_categories.with_user.page(params[:page])
   end
 
   def show
@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new post_params
+    @post.user_id = current_user.id
     if @post.save
       redirect_to posts_path, flash: { notice: 'It worked' }
     else
