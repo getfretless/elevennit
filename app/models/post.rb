@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  acts_as_commentable
+
   validates :title, length: { maximum: 255 }, presence: true
   validates :link, presence: true, if: :link?
   validates :link, length: { maximum: 2000 }

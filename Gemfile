@@ -6,6 +6,7 @@ gem 'rails_12factor', group: :production
 gem 'pry-rails', group: [:development, :test]
 gem 'will_paginate'
 gem 'devise'
+gem 'acts_as_commentable_with_threading'
 
 group :development do
   gem "better_errors"
