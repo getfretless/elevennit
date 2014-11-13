@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :categories
-  resources :comments, only: :create
+  resources :comments, only: [:create, :new]
 end
