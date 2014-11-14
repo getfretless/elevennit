@@ -5,5 +5,8 @@
     <li>
       <%= link_to 'delete', post_path(post), method: :delete, data: { confirm: 'Are you sure? This cannot be undone.' } %>
     </li>
+    <li>
+      <%= link_to 'save', save_post_path(post), method: :post %>
+    </li>
   </ul>
 <% end -%>

@@ -7,6 +7,7 @@ gem 'pry-rails', group: [:development, :test]
 gem 'will_paginate'
 gem 'devise'
 gem 'acts_as_commentable_with_threading'
+gem 'httparty'
 
 group :development do
   gem "better_errors"

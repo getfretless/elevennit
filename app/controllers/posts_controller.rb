@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post, only: [:show, :edit, :update, :destroy, :save]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -27,6 +27,13 @@ class PostsController < ApplicationController
       flash.now[:error] = @post.errors.full_messages
       render :new
     end
+  end
+
+  def save
+    ElevenNote.create_from @post
+    redirect_to @post, notice: 'Saved to ElevenNote!'
+  rescue
+    redirect_to @post, alert: 'We were unable to save that to ElevenNote.'
   end
 
   def update
