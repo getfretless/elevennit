@@ -6,7 +6,11 @@
       <%= link_to 'delete', post_path(post), method: :delete, data: { confirm: 'Are you sure? This cannot be undone.' } %>
     </li>
     <li>
-      <%= link_to 'save', save_post_path(post), method: :post %>
+      <% if current_user.elevennote_api_key.present? %>
+        <%= link_to 'save', save_post_path(post), method: :post %>
+      <% else %>
+        <%= link_to 'add your elevennote api key to save', edit_user_registration_path(current_user) %>
+      <% end %>
     </li>
   </ul>
 <% end -%>

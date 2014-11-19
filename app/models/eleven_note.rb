@@ -3,7 +3,7 @@ class ElevenNote
   include Singleton
 
   API_BASE = Rails.application.secrets.elevennote_api_base
-  API_KEY = Rails.application.secrets['elevennote_api_key']
+  API_KEY = current_user.elevennote_api_key
 
   base_uri API_BASE
 

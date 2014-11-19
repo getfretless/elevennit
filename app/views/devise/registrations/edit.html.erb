@@ -15,6 +15,11 @@
     <%= f.text_field :username %>
   </fieldset>
 
+  <fieldset>
+    <%= f.label :elevennote_api_key, 'ElevenNote API Key' %><br />
+    <%= f.text_field :elevennote_api_key %>
+  </fieldset>
+
   <fieldset><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %></fieldset>
 
