@@ -3,22 +3,21 @@ class ElevenNote
   include Singleton
 
   API_BASE = Rails.application.secrets.elevennote_api_base
-  API_KEY = current_user.elevennote_api_key
 
   base_uri API_BASE
 
   # ElevenNote.find(note_id)
-  def self.find(id)
-    get "/notes/#{id}?api_key=#{API_KEY}"
+  def self.find(id, api_key)
+    get "/notes/#{id}?api_key=#{api_key}"
   end
 
   # post = Post.first
   # ElevenNote.create_from(post)
-  def self.create_from(post)
+  def self.create_from(post, api_key)
     content = post.link.presence || post.body
     post "/notes",
       body: {
-        api_key: API_KEY,
+        api_key: api_key,
         note: {
           title: post.title,
           body_html: content

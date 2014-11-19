@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   end
 
   def save
-    ElevenNote.create_from @post
+    ElevenNote.create_from @post, current_user.elevennote_api_key
     redirect_to @post, notice: 'Saved to ElevenNote!'
   rescue
     redirect_to @post, alert: 'We were unable to save that to ElevenNote.'
