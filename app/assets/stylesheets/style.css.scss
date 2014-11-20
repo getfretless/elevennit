@@ -54,6 +54,9 @@ main {
         a:link, a:hover, a:active {
           color: blue;
         }
+        small {
+          font-size: 10px;
+        }
         a:visited {
           color: #551a8b;
         }

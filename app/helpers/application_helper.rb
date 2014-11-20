@@ -11,14 +11,21 @@ module ApplicationHelper
     alert_type
   end
 
-  def post_link_path(post)
+  def post_link_url(post)
     return post.link if post.link?
-    return post_path(post) if post.text?
+    return post_url(post) if post.text?
+  end
+
+  def post_title_hostname(post)
+    content_tag :small do
+      "(#{ link_to URI.parse(post_link_url post).hostname, post_link_url(post)})".html_safe
+    end
   end
 
   def post_title_link(post)
     content_tag :div, class: 'title' do
-      link_to post.title, post_link_path(post)
+      link_to(post.title, post_link_url(post)) +
+      ' ' + post_title_hostname(post)
     end
   end
 
